@@ -1,0 +1,9 @@
+server:
+  port: 9090
+secret:
+  mail:
+    username: anyname@gmail.com
+    password: password
+message:
+  success: 'Config server is working'
+  error: 'Config server is not working'
