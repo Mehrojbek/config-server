@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>uz.dtc</groupId>
-    <artifactId>config-client1</artifactId>
+    <artifactId>config-client</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>config-client1</name>
     <description>config-client1</description>
