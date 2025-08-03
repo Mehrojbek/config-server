@@ -7,4 +7,9 @@ spring:
     config:
       server:
         git:
-          uri: git@github.com:Mehrojbek/config-server.git
+          uri: https://github.com/Mehrojbek/config-resource.git
+  rabbitmq:
+    port: 4672
+    host: localhost
+    username: guest
+    password: guest

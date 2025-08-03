@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    # Eng so'nggi RabbitMQ versiyasi, boshqaruv paneli bilan birga
+    image: rabbitmq:3-management-alpine
+
+    # Konteyner nomi
+    container_name: rabbit-for-config-server
+
+    # Port sozlamalari: <XOST_PORTI>:<KONTEYNER_PORTI>
+    ports:
+      # Asosiy ulanish porti: Sizning kompyuteringizdagi 4672-portni
+      # konteyner ichidagi standart 5672-portga yo'naltiradi.
+      - "4672:5672"
+
+      # Boshqaruv paneli (Management UI) porti:
+      # localhost:15672 orqali kirish uchun.
+      - "14672:15672"
+
+    # Ma'lumotlarni saqlash uchun volume
+    # Bu RabbitMQ'ning ma'lumotlarini kompyuteringizdagi ./rabbitmq_data papkasida saqlaydi
+    volumes:
+      - ./rabbitmq_data_2:/var/lib/rabbitmq/
+
+    # Muhit o'zgaruvchilari (ixtiyoriy, lekin yaxshi amaliyot)
+    # Standart 'guest'/'guest' o'rniga o'zingizning login/parolingizni o'rnatish
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest      # O'zingizning foydalanuvchi nomingiz
+      - RABBITMQ_DEFAULT_PASS=guest  # O'zingizning kuchli parolingiz
+
+    # Konteyner doim ishga tushib turishi uchun
+    restart: unless-stopped
