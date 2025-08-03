@@ -1,5 +1,5 @@
 spring:
   application:
-    name: config-client1
+    name: config-client
   config:
     import: 'configserver:http://localhost:8888'
